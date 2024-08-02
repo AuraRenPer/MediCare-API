@@ -16,7 +16,16 @@ const createMedicamento = async (req, res) => {
     nombre: req.body.nombre,
     dosis: req.body.dosis,
     presentación: req.body.presentación,
-    frecuencia: req.body.frecuencia,
+    frecuencia: {
+      fecha: req.body.frecuencia.fecha,
+      hora: req.body.frecuencia.hora,
+      minuto: req.body.frecuencia.minuto
+    },
+    proxima_toma: {
+      fecha: req.body.proxima_toma.fecha,
+      hora: req.body.proxima_toma.hora,
+      minuto: req.body.proxima_toma.minuto
+    },
     cantidad_dosis_disponibles: req.body.cantidad_dosis_disponibles
   });
 
@@ -37,7 +46,16 @@ const updateMedicamento = async (req, res) => {
     medicamento.nombre = req.body.nombre || medicamento.nombre;
     medicamento.dosis = req.body.dosis || medicamento.dosis;
     medicamento.presentación = req.body.presentación || medicamento.presentación;
-    medicamento.frecuencia = req.body.frecuencia || medicamento.frecuencia;
+    medicamento.frecuencia = {
+      fecha: req.body.frecuencia.fecha || medicamento.frecuencia.fecha,
+      hora: req.body.frecuencia.hora || medicamento.frecuencia.hora,
+      minuto: req.body.frecuencia.minuto || medicamento.frecuencia.minuto
+    };
+    medicamento.proxima_toma = {
+      fecha: req.body.proxima_toma.fecha || medicamento.proxima_toma.fecha,
+      hora: req.body.proxima_toma.hora || medicamento.proxima_toma.hora,
+      minuto: req.body.proxima_toma.minuto || medicamento.proxima_toma.minuto
+    };
     medicamento.cantidad_dosis_disponibles = req.body.cantidad_dosis_disponibles || medicamento.cantidad_dosis_disponibles;
     medicamento.fecha_actualización = Date.now();
 
