@@ -17,9 +17,8 @@ const createMedicamento = async (req, res) => {
     dosis: req.body.dosis,
     presentación: req.body.presentación,
     frecuencia: {
-      fecha: req.body.frecuencia.fecha,
-      hora: req.body.frecuencia.hora,
-      minuto: req.body.frecuencia.minuto
+      horas: req.body.frecuencia.horas,
+      minutos: req.body.frecuencia.minutos
     },
     proxima_toma: {
       fecha: req.body.proxima_toma.fecha,
@@ -47,9 +46,8 @@ const updateMedicamento = async (req, res) => {
     medicamento.dosis = req.body.dosis || medicamento.dosis;
     medicamento.presentación = req.body.presentación || medicamento.presentación;
     medicamento.frecuencia = {
-      fecha: req.body.frecuencia.fecha || medicamento.frecuencia.fecha,
-      hora: req.body.frecuencia.hora || medicamento.frecuencia.hora,
-      minuto: req.body.frecuencia.minuto || medicamento.frecuencia.minuto
+      horas: req.body.frecuencia.horas || medicamento.frecuencia.horas,
+      minutos: req.body.frecuencia.minutos || medicamento.frecuencia.minutos
     };
     medicamento.proxima_toma = {
       fecha: req.body.proxima_toma.fecha || medicamento.proxima_toma.fecha,
